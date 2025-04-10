@@ -12,6 +12,6 @@ I use resources like [ARIA Authoring Practices Guide][apg] and turn them into de
 
 ## Tutorials
 
-- [Inspecting the Web Accessibility Tree](tree/web_a11y_tree)
+- [Inspecting the Web Accessibility Tree](https://github.com/infolektuell/a11y-tutorials/tree/web_a11y_tree)
 
 [apg]: https://www.w3.org/WAI/ARIA/apg/
