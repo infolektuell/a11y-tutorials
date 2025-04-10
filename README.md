@@ -1,48 +1,28 @@
-# Astro Starter Kit: Basics
+# Inspecting the Web Accessibility Tree
 
-```sh
-npm create astro@latest -- --template basics
-```
+This is the accompanying code for my video on testing via [accessibility tree] in the browser.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## What I did
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- Created a fresh astro project
+- Inserted an example from the [hero docs][bulma-hero] of the Bulma  CSS framework
+- Run the project in dev mode
+- Open in browser and view accessibility properties in dev tools (quite sad and boring)
+- Made additions to enhance the A11Y tree
+- Watched the tree in dev tools becoming happier with each commit
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+## Enhancements
 
-## 🚀 Project Structure
+- Added [banner] landmark via header element, because hero head contains site navigation
+- Added better alt text to logo (company name or alike, **not logo**)
+- Added href attributes to a elements, these are needed to get the link role
+- Added label to link with icon
+- Indicates links to current page via `aria-current` attribute
+- Turned hamburger into an accessible disclosure button
+- Implemented [disclosure pattern] for mobile menu
+- Use more semantic elements for hero content
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+[accessibility tree]: https://developer.mozilla.org/en-US/docs/Glossary/Accessibility_tree
+[bulma-hero]: https://bulma.io/documentation/layout/hero/
+[banner]: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/banner_role
+[disclosure pattern]: https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/
