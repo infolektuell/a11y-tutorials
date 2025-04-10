@@ -10,48 +10,50 @@ const title = 'A11Y Tree'
   <div class="hero is-success is-fullheight">
     {/* Hero head: will stick at the top */}
     <header class="hero-head" aria-labelledby="brand-link">
-      <nav class="navbar">
-        <div class="container">
-          <div class="navbar-brand">
-            <a class="navbar-item" id="brand-link" href="https://bulma.io/">
-              <Image src={bulmaImage} loading="eager" alt="Bulma" />
-            </a>
-            <button
-              type="button"
-              aria-controls="navbarMenuHeroC"
-              aria-expanded="false"
-              aria-label="Menu"
-              class="navbar-burger"
-              data-target="navbarMenuHeroC"
-            >
-              <span aria-hidden="true"></span>
-              <span aria-hidden="true"></span>
-              <span aria-hidden="true"></span>
-              <span aria-hidden="true"></span>
-            </button>
-          </div>
-          <div id="navbarMenuHeroC" class="navbar-menu">
-            <div class="navbar-end">
-              <a href="/" class="navbar-item is-active" aria-current="page"> Home </a>
-              <a href="/examples/" class="navbar-item"> Examples </a>
-              <a href="/docs/" class="navbar-item"> Documentation </a>
-              <span class="navbar-item">
-                <a
-                  href="https://github.com/jgthms/bulma"
-                  target="_blank"
-                  class="button is-success is-inverted"
-                  aria-label="Download on GitHub"
-                >
-                  <span class="icon">
-                    <Icon name="fa-brands:github" width="100%" height="100%" aria-hidden="true" />
-                  </span>
-                  <span>Download</span>
-                </a>
-              </span>
+      <bulma-navbar>
+        <nav class="navbar">
+          <div class="container">
+            <div class="navbar-brand">
+              <a class="navbar-item" id="brand-link" href="https://bulma.io/">
+                <Image src={bulmaImage} loading="eager" alt="Bulma" />
+              </a>
+              <button
+                type="button"
+                aria-controls="navbarMenuHeroC"
+                aria-expanded="false"
+                aria-label="Menu"
+                class="navbar-burger"
+                data-target="navbarMenuHeroC"
+              >
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+              </button>
+            </div>
+            <div id="navbarMenuHeroC" class="navbar-menu">
+              <div class="navbar-end">
+                <a href="/" class="navbar-item is-active" aria-current="page"> Home </a>
+                <a href="/examples/" class="navbar-item"> Examples </a>
+                <a href="/docs/" class="navbar-item"> Documentation </a>
+                <span class="navbar-item">
+                  <a
+                    href="https://github.com/jgthms/bulma"
+                    target="_blank"
+                    class="button is-success is-inverted"
+                    aria-label="Download on GitHub"
+                  >
+                    <span class="icon">
+                      <Icon name="fa-brands:github" width="100%" height="100%" aria-hidden="true" />
+                    </span>
+                    <span>Download</span>
+                  </a>
+                </span>
+              </div>
             </div>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </bulma-navbar>
     </header>
 
     <!-- Hero content: will be in the middle -->
@@ -79,3 +81,26 @@ const title = 'A11Y Tree'
     </div>
   </div>
 </Layout>
+<script>
+  class BulmaNavbar extends HTMLElement {
+    connectedCallback() {
+      const $button = this.querySelector('.navbar-burger') as HTMLElement
+      const $content = this.querySelector('.navbar-menu') as HTMLElement
+      if ($button && $content) {
+        $button.setAttribute('aria-expanded', 'false')
+        $button.classList.remove('is-active')
+        $content.classList.remove('is-active')
+        $button.addEventListener('click', () => {
+          this.toggle($button, $content)
+        })
+      }
+    }
+    toggle($button: HTMLElement, $content: HTMLElement) {
+      const isExpanded = $button.getAttribute('aria-expanded') === 'true'
+      $button.setAttribute('aria-expanded', isExpanded ? 'false' : 'true')
+      $button.classList.toggle('is-active')
+      $content.classList.toggle('is-active')
+    }
+  }
+  customElements.define('bulma-navbar', BulmaNavbar)
+</script>
