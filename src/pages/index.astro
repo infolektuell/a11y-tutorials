@@ -9,12 +9,12 @@ const title = 'A11Y Tree'
 <Layout {title}>
   <div class="hero is-success is-fullheight">
     {/* Hero head: will stick at the top */}
-    <header class="hero-head">
+    <header class="hero-head" aria-labelledby="brand-link">
       <nav class="navbar">
         <div class="container">
           <div class="navbar-brand">
-            <a class="navbar-item">
-              <Image src={bulmaImage} loading="eager" alt="Logo" />
+            <a class="navbar-item" id="brand-link">
+              <Image src={bulmaImage} loading="eager" alt="Bulma" />
             </a>
             <span class="navbar-burger" data-target="navbarMenuHeroC">
               <span></span>
