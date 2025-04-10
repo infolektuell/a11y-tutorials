@@ -16,12 +16,19 @@ const title = 'A11Y Tree'
             <a class="navbar-item" id="brand-link" href="https://bulma.io/">
               <Image src={bulmaImage} loading="eager" alt="Bulma" />
             </a>
-            <span class="navbar-burger" data-target="navbarMenuHeroC">
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-            </span>
+            <button
+              type="button"
+              aria-controls="navbarMenuHeroC"
+              aria-expanded="false"
+              aria-label="Menu"
+              class="navbar-burger"
+              data-target="navbarMenuHeroC"
+            >
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </button>
           </div>
           <div id="navbarMenuHeroC" class="navbar-menu">
             <div class="navbar-end">
