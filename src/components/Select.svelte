@@ -38,6 +38,54 @@
     if (ev.relatedTarget && listBox.contains(ev.relatedTarget as Node)) { return }
     vm.close()
   }
+  const onkeydown = function (ev: KeyboardEvent) {
+    const { key } = ev
+    if (vm.isOpen) {
+      switch (key) {
+        case 'Home':
+          vm.goToFirst()
+          ev.preventDefault()
+          break
+        case 'End':
+          vm.goToLast()
+          ev.preventDefault()
+          break
+        case 'PageUp':
+          vm.goToPreviousSet()
+          ev.preventDefault()
+          break
+        case 'PageDown':
+          vm.goToNextSet()
+          ev.preventDefault()
+          break
+        case 'ArrowUp':
+          vm.goToPrevious()
+          ev.preventDefault()
+          break
+        case 'ArrowDown':
+          vm.goToNext()
+          ev.preventDefault()
+          break
+        case ' ':
+        case 'Enter':
+          vm.select()
+          ev.preventDefault()
+          break
+        case 'Escape':
+          vm.close()
+          ev.preventDefault()
+      }
+    } else {
+      switch (key) {
+        case 'ArrowUp':
+        case 'ArrowDown':
+        case 'Enter':
+        case ' ':
+          vm.open()
+          ev.preventDefault()
+      }
+    }
+  }
 </script>
 <div class="combo">
   <div
@@ -55,6 +103,7 @@
     id={comboboxId}
     {onblur}
     {onclick}
+    {onkeydown}
     role="combobox"
     tabindex="0"
   >{vm.hasSelection ? vm.value : vm.placeholder}</div>

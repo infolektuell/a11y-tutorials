@@ -83,3 +83,14 @@ We have to attach some focus checks and blur handlers to maintain focus in these
 
 - Selecting an option should bring back focus to the select after closing.
 - Focusing away should close the select and leave focus alone, no focus trap.
+
+## Keyboard Navigation
+
+This important feature is still missing in our select.
+A keyboard event handler has to listen for navigation keys, so keyboard users can focus and select options without having to use a mouse.
+
+- Focus previous/next option: Arrow up/down
+- Focus first/last option: Home/End
+- Focus previous/next page: Page up/down
+- Select the currently focused option: Space/Enter
+- Close: Escape
