@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import Select from '../components/Select.svelte'
 const title = 'Accessible Dropdown'
 const label = 'Favorite Fruit'
 const placeholder = 'Choose a Fruit'
@@ -32,6 +33,12 @@ const options = [
           <option value="" disabled selected>{placeholder}</option>
           {options.map((o, i) => <option value={i}>{o}</option>)}
         </select>
+      </form>
+    </section>
+    <section aria-labelledby="custom-select-heading">
+      <h2 id="custom-select-heading">Custom Select</h2>
+      <form>
+        <Select client:load {label} {placeholder} {options} />
       </form>
     </section>
   </main>

@@ -49,3 +49,11 @@ The view will bind to the state and trigger its actions by event handlers.
   - Select option,
   - Focus next/previous, first/last, or next/previous page
   - Focus an option by prefix search.
+
+## View with Basic Markup
+
+Next, the view is created with the following minimal setup:
+
+1. Properties and initialized view model
+2. Unique IDs necessary to connect HTML elements using ARIA attributes
+3. HTML structure with required roles and ARIA attributes, bound to the view model
