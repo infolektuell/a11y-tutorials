@@ -1,6 +1,7 @@
 <script lang="ts">
   import { SelectViewModel } from './SelectViewModel.svelte.ts'
   import { findByLetter } from '../actions/findByLetter.ts'
+  import { scroll } from '../actions/scroll.svelte.ts'
   type Props = {
     label: string
     placeholder: string
@@ -21,6 +22,7 @@
   const comboboxId = uid + '-combobox'
   const menuId = uid + '-menu'
   let optionIds = $derived(vm.options.map((_, i) => uid + '-option-' + i))
+  let currentId = $derived(vm.current >= 0 ? optionIds[vm.current] : '')
   let comboBox: HTMLElement
   let listBox: HTMLElement
   const onclick = function () {
@@ -117,6 +119,7 @@
     onfocusout={onblur}
     role="listbox"
     tabindex="-1"
+    use:scroll={{ getSelector: () => currentId && '#' + currentId }}
   >
     {#each vm.options as option, index}
       <div

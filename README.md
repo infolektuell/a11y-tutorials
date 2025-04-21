@@ -103,3 +103,13 @@ Actions add behavior to DOM elements and abstract out the behavior from the comp
 
 If the select is open, typing some chars searches for a matching option.
 It forgets your typed chars after you stopped typing for 300 ms.
+
+## Keeping Focused Option Visible
+
+Last, we have to ensure that an option remains visible when it is focused.
+We attach an action to the listbox that scrolls focused invisible options into view.
+
+## Work done
+
+Finally, we have a working and accessible select component written in Svelte.
+Styling and behavior could further be adapted to meet certain requirements.
