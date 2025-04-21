@@ -54,3 +54,103 @@
     {/each}
   </div>
 </div>
+<style>
+  .combo *,
+  .combo *::before,
+  .combo *::after {
+    box-sizing: border-box;
+  }
+
+  .combo {
+    display: block;
+    margin-bottom: 1.5em;
+    max-width: 400px;
+    position: relative;
+  }
+
+  .combo::after {
+    border-bottom: 2px solid rgb(0 0 0 / 75%);
+    border-right: 2px solid rgb(0 0 0 / 75%);
+    content: '';
+    display: block;
+    height: 12px;
+    pointer-events: none;
+    position: absolute;
+    right: 16px;
+    top: 65%;
+    transform: translate(0, -65%) rotate(45deg);
+    width: 12px;
+  }
+
+  [role='combobox'] {
+    background-color: #f5f5f5;
+    border: 2px solid rgb(0 0 0 / 75%);
+    border-radius: 4px;
+    display: block;
+    font-size: 1em;
+    min-height: calc(1.4em + 26px);
+    padding: 12px 16px 14px;
+    text-align: left;
+    width: 100%;
+  }
+
+  [aria-expanded='true'] {
+    border-radius: 4px 4px 0 0;
+  }
+
+  [role='combobox']:focus {
+    border-color: #0067b8;
+    box-shadow: 0 0 4px 2px #0067b8;
+    outline: 4px solid transparent;
+  }
+
+  .combo-label {
+    display: block;
+    font-weight: 100;
+    margin-bottom: 0.25em;
+    font-size: 1.2em;
+  }
+
+  [role='listbox'] {
+    background-color: #f5f5f5;
+    border: 1px solid rgb(0 0 0 / 75%);
+    border-radius: 0 0 4px 4px;
+    max-height: 300px;
+    overflow-y: scroll;
+    left: 0;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    z-index: 100;
+  }
+
+  [role='option'] {
+    padding: 10px 12px 12px;
+  }
+
+  [role='option']:hover {
+    background-color: rgb(0 0 0 / 10%);
+  }
+
+  [role='option'].option-current {
+    outline: 3px solid #0067b8;
+    outline-offset: -3px;
+  }
+
+  [aria-selected='true'] {
+    padding-right: 30px;
+    position: relative;
+  }
+
+  [aria-selected='true']::after {
+    border-bottom: 2px solid #000;
+    border-right: 2px solid #000;
+    content: '';
+    height: 16px;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translate(0, -50%) rotate(45deg);
+    width: 8px;
+  }
+</style>

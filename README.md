@@ -57,3 +57,12 @@ Next, the view is created with the following minimal setup:
 1. Properties and initialized view model
 2. Unique IDs necessary to connect HTML elements using ARIA attributes
 3. HTML structure with required roles and ARIA attributes, bound to the view model
+
+## Styles
+
+The component needs some CSS to look like a select box.
+This is crucial for A11Y, too.
+
+- Indicate if the select is open or closed
+- Indicate which option is focused, hovered, or selected
+- A bit unusual: Use roles and ARIA attributes as CSS selector, if possible
