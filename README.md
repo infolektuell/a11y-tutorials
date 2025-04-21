@@ -5,7 +5,7 @@ This demonstrates how to build an accessible dropdown menu from scratch.
 ## What is a dropdown?
 
 When people talk about _dropdowns_, they often think of the [disclosure pattern] which is showing/hiding content and relatively easy to implement.
-Please check if your use-case is covered by disclosure.
+Please check if a disclosure might already suit your needs.
 A native disclosure element is `details` and `summary`, but unfortunately, browser support for styling still has some limitations.
 The same applies for the native `select`, that's why people want custom controls.
 
@@ -23,9 +23,9 @@ A dropdown menu has an associated popup that lets users choose from allowed opti
 We rebuild an [example] from APG as a Svelte component running Astro.
 Declarative code facilitates highlighting the critical concepts for A11Y.
 
-For reference, a native select containing the example data is added to the single Astro page.
+The Astro page contains the example data as a native select element.
 
-- Clone this repo and checkout this branch
+- Clone this repo and check out this branch
 - `npm i`
 - `npm run dev`
 - Press o and enter
@@ -33,3 +33,19 @@ For reference, a native select containing the example data is added to the singl
 The browser should open the page with the native select.
 
 [example]: https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-select-only/
+
+## View Model
+
+First, a view model is created to describe the possible state of this control, and the actions a user can perform to change that state.
+The view will bind to the state and trigger its actions by event handlers.
+
+- State:
+  - Open/closed
+  - Options, label, placeholder
+  - Current (focused) option,
+  - Selected option
+- Actions
+  - Open/close
+  - Select option,
+  - Focus next/previous, first/last, or next/previous page
+  - Focus an option by prefix search.
