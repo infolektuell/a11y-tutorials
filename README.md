@@ -23,4 +23,13 @@ A dropdown menu has an associated popup that lets users choose from allowed opti
 We rebuild an [example] from APG as a Svelte component running Astro.
 Declarative code facilitates highlighting the critical concepts for A11Y.
 
+For reference, a native select containing the example data is added to the single Astro page.
+
+- Clone this repo and checkout this branch
+- `npm i`
+- `npm run dev`
+- Press o and enter
+
+The browser should open the page with the native select.
+
 [example]: https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-select-only/

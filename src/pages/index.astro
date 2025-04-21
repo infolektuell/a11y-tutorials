@@ -1,6 +1,22 @@
 ---
 import Layout from '../layouts/Layout.astro'
 const title = 'Accessible Dropdown'
+const label = 'Favorite Fruit'
+const placeholder = 'Choose a Fruit'
+const options = [
+  'Apple',
+  'Banana',
+  'Blueberry',
+  'Boysenberry',
+  'Cherry',
+  'Cranberry',
+  'Durian',
+  'Eggplant',
+  'Fig',
+  'Grape',
+  'Guava',
+  'Huckleberry',
+]
 ---
 
 <Layout {title}>
@@ -8,6 +24,15 @@ const title = 'Accessible Dropdown'
     <h1>{title}</h1>
   </header>
   <main>
-    <p>This will become a dropdown menu.</p>
+    <section aria-labelledby="native-select-heading">
+      <h2 id="native-select-heading">Native Select</h2>
+      <form>
+        <label for="native-select">{label}</label>
+        <select id="native-select" name="fruit">
+          <option value="" disabled selected>{placeholder}</option>
+          {options.map((o, i) => <option value={i}>{o}</option>)}
+        </select>
+      </form>
+    </section>
   </main>
 </Layout>
