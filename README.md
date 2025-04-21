@@ -94,3 +94,12 @@ A keyboard event handler has to listen for navigation keys, so keyboard users ca
 - Focus previous/next page: Page up/down
 - Select the currently focused option: Space/Enter
 - Close: Escape
+
+## Find by Typing
+
+It should be possible to focus an option by typing prefix characters.
+This is achieved by creating a Svelte action and attaching it to the select.
+Actions add behavior to DOM elements and abstract out the behavior from the component.
+
+If the select is open, typing some chars searches for a matching option.
+It forgets your typed chars after you stopped typing for 300 ms.

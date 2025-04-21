@@ -1,5 +1,6 @@
 <script lang="ts">
   import { SelectViewModel } from './SelectViewModel.svelte.ts'
+  import { findByLetter } from '../actions/findByLetter.ts'
   type Props = {
     label: string
     placeholder: string
@@ -106,6 +107,7 @@
     {onkeydown}
     role="combobox"
     tabindex="0"
+    use:findByLetter={{ duration: 300, submit: (val) => vm.search(val) }}
   >{vm.hasSelection ? vm.value : vm.placeholder}</div>
   <div
     aria-labelledby={labelId}
