@@ -75,3 +75,11 @@ Next, some minimal event handlers are connected, so we can trigger some actions 
 - Clicking an option selects it.
 
 This makes it rudimentarily “usable,” but there's still some work left.
+
+## Focus Management
+
+Closing the select after selecting an option triggers some focus issues.
+We have to attach some focus checks and blur handlers to maintain focus in these situations.
+
+- Selecting an option should bring back focus to the select after closing.
+- Focusing away should close the select and leave focus alone, no focus trap.

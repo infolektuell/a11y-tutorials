@@ -20,12 +20,23 @@
   const comboboxId = uid + '-combobox'
   const menuId = uid + '-menu'
   let optionIds = $derived(vm.options.map((_, i) => uid + '-option-' + i))
+  let comboBox: HTMLElement
+  let listBox: HTMLElement
   const onclick = function () {
     vm.toggle()
   }
   const onOptionClick = function (ev: Event, index: number) {
     ev.stopPropagation()
-    vm.select(index)
+    const closed = vm.select(index)
+    if (closed && document.activeElement !== comboBox) { comboBox.focus() }
+  }
+  const onmousedown = function (ev: MouseEvent) {
+    if (!ev.target) { return }
+    ev.target.ignoreBlur = true
+  }
+  const onblur = function (ev: FocusEvent) {
+    if (ev.relatedTarget && listBox.contains(ev.relatedTarget as Node)) { return }
+    vm.close()
   }
 </script>
 <div class="combo">
@@ -40,15 +51,19 @@
     aria-expanded={vm.isOpen}
     aria-haspopup="listbox"
     aria-labelledby={labelId}
+    bind:this={comboBox}
     id={comboboxId}
+    {onblur}
     {onclick}
     role="combobox"
     tabindex="0"
   >{vm.hasSelection ? vm.value : vm.placeholder}</div>
   <div
     aria-labelledby={labelId}
+    bind:this={listBox}
     hidden={!vm.isOpen}
     id={menuId}
+    onfocusout={onblur}
     role="listbox"
     tabindex="-1"
   >
@@ -59,6 +74,7 @@
         class:option-current={vm.current === index}
         id={optionIds[index]}
         onclick={(ev) => onOptionClick(ev, index)}
+        {onmousedown}
         role="option"
       >{option}</div>
     {/each}
