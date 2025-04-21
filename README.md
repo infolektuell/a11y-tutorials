@@ -66,3 +66,12 @@ This is crucial for A11Y, too.
 - Indicate if the select is open or closed
 - Indicate which option is focused, hovered, or selected
 - A bit unusual: Use roles and ARIA attributes as CSS selector, if possible
+
+## Minimal Event Handling
+
+Next, some minimal event handlers are connected, so we can trigger some actions in the view model from the view:
+
+- Clicking the combobox opens and closes it, so the options can be viewed.
+- Clicking an option selects it.
+
+This makes it rudimentarily “usable,” but there's still some work left.

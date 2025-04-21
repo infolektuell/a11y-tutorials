@@ -20,11 +20,19 @@
   const comboboxId = uid + '-combobox'
   const menuId = uid + '-menu'
   let optionIds = $derived(vm.options.map((_, i) => uid + '-option-' + i))
+  const onclick = function () {
+    vm.toggle()
+  }
+  const onOptionClick = function (ev: Event, index: number) {
+    ev.stopPropagation()
+    vm.select(index)
+  }
 </script>
 <div class="combo">
   <div
     class="combo-label"
     id={labelId}
+    {onclick}
   >{vm.label}</div>
   <div
     aria-activedescendant={vm.isOpen ? optionIds[vm.current] : null}
@@ -33,6 +41,7 @@
     aria-haspopup="listbox"
     aria-labelledby={labelId}
     id={comboboxId}
+    {onclick}
     role="combobox"
     tabindex="0"
   >{vm.hasSelection ? vm.value : vm.placeholder}</div>
@@ -49,6 +58,7 @@
         aria-selected={vm.selected === index}
         class:option-current={vm.current === index}
         id={optionIds[index]}
+        onclick={(ev) => onOptionClick(ev, index)}
         role="option"
       >{option}</div>
     {/each}
