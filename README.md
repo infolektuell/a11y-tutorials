@@ -10,8 +10,9 @@ This repository contains the code for my technical tutorials and howtos about ac
 This code is not production-ready but for demonstration purposes.
 I use resources like [ARIA Authoring Practices Guide][apg] and turn them into developer-friendly and expressive git histories.
 
+[apg]: https://www.w3.org/WAI/ARIA/apg/
+
 ## Tutorials
 
 - [Inspecting the Web Accessibility Tree](https://github.com/infolektuell/a11y-tutorials/tree/web_a11y_tree)
-
-[apg]: https://www.w3.org/WAI/ARIA/apg/
+- [Building an accessible dropdown control](https://github.com/infolektuell/a11y-tutorials/tree/accessible_dropdown_menu)
